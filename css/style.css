@@ -1,0 +1,472 @@
+:root {
+    --primary: #06b6d4;          /* Sci-Fi Cyan / PubSec */
+    --primary-hover: #0891b2;
+    --bg: #090d16;
+    --card-bg: #131c2e;
+    --text: #f8fafc;
+    --text-muted: #64748b;
+    --accent: #22d3ee;           /* Bright Cyan Glow */
+    --border: #1e293b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: #000000;
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* iPhone 15 Viewport Container */
+.app-viewport {
+    width: 100%;
+    max-width: 393px;
+    height: 100vh;
+    max-height: 852px;
+    background-color: var(--bg);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto;
+    border: 1px solid var(--border);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+header {
+    padding: 16px 20px 10px 20px;
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(6, 182, 212, 0.15);
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+h1 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.content {
+    padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ==========================================================================
+   STARTSEITE (index.html) STYLES
+   ========================================================================== */
+
+/* Zhu Yuan Hero Banner */
+.hero-card {
+    width: 100%;
+    height: 220px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-card span {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Programm-Karten auf der Startseite */
+.program-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.program-card:active {
+    transform: scale(0.98);
+}
+
+.program-card:hover {
+    border-color: var(--accent);
+}
+
+.program-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.program-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.program-meta {
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+/* ==========================================================================
+   WORKOUT SCREEN (workout.html) STYLES
+   ========================================================================== */
+
+/* Dual Progress Bars Header Section */
+.progress-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.progress-label-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.progress-bar-container {
+    width: 100%;
+    background: #1e293b;
+    border-radius: 6px;
+    height: 6px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #0284c7, var(--accent));
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.progress-bar.set-bar {
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+/* Exercise Image Box */
+.exercise-image-box {
+    width: 100%;
+    height: 230px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exercise-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Großer Runder Sci-Fi Button (Mit Eieruhr-Radial-Progress) */
+.round-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0 10px 0;
+}
+
+.round-core-btn {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #0f2738 0%, #09131d 100%);
+    border: 4px solid var(--accent);
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.4), inset 0 0 15px rgba(34, 211, 238, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.1s ease, box-shadow 0.2s ease;
+    padding: 10px;
+}
+
+.round-core-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.7);
+}
+
+/* Aktiver Eieruhr-Timer Ring (Wird via JS mit --progress befüllt) */
+.round-core-btn.holding-active {
+    background: conic-gradient(
+        var(--accent) 0deg,
+        var(--accent) var(--progress, 0deg),
+        #09131d var(--progress, 0deg),
+        #09131d 360deg
+    );
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.7), inset 0 0 20px rgba(34, 211, 238, 0.4);
+}
+
+/* Innerer Kern des Buttons, damit der Hintergrund dunkel bleibt */
+.round-core-btn::after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    background: radial-gradient(circle, #0f2738 0%, #09131d 100%);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Sci-Fi Ring Deko (Nur wenn nicht im Halte-Modus) */
+.round-core-btn:not(.holding-active)::before {
+    content: '';
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 2px dashed rgba(34, 211, 238, 0.4);
+    animation: rotateRing 20s linear infinite;
+    z-index: 1;
+}
+
+@keyframes rotateRing {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.round-core-btn .btn-label,
+.round-core-btn .btn-main-text,
+.round-core-btn .btn-timer-text {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn-main-text {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 2px;
+    text-shadow: 0 0 10px rgba(34, 211, 238, 0.6);
+}
+
+.btn-timer-text {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--accent);
+    font-family: monospace;
+    text-shadow: 0 0 15px rgba(34, 211, 238, 0.8);
+}
+
+/* ==========================================================================
+   ANIMIERTER ABSCHLUSS-KREIS (Finish View)
+   ========================================================================== */
+.finish-circle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.finish-core-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, rgba(9, 13, 22, 0.9) 100%);
+    border: 3px solid #10b981;
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.5), inset 0 0 15px rgba(16, 185, 129, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: pulseCore 2.5s ease-in-out infinite;
+}
+
+@keyframes pulseCore {
+    0% { transform: scale(1); box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(16, 185, 129, 0.7); }
+    100% { transform: scale(1); box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
+}
+
+.finish-core-circle::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px dashed rgba(16, 185, 129, 0.6);
+    animation: rotateCounterRing 12s linear infinite;
+}
+
+@keyframes rotateCounterRing {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+.finish-icon {
+    font-size: 2.2rem;
+    color: #10b981;
+    text-shadow: 0 0 12px rgba(16, 185, 129, 0.9);
+    z-index: 2;
+}
+
+/* ==========================================================================
+   PAUSEN-SELECTOR MIT UHR-ICON
+   ========================================================================== */
+.pause-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #0f172a;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 4px;
+    gap: 4px;
+}
+
+.pause-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    padding-left: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pause-label svg {
+    width: 14px;
+    height: 14px;
+    fill: var(--text-muted);
+}
+
+.segmented-control {
+    display: flex;
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 2px;
+    gap: 2px;
+}
+
+.segmented-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.segmented-btn.active {
+    background: var(--primary);
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+}
+
+/* Neuer Sci-Fi Finish Button */
+.btn-finish {
+    background: linear-gradient(135deg, #0284c7, var(--primary));
+    color: white;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-finish:active {
+    transform: scale(0.97);
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.7);
+}
+
+button.btn-secondary {
+    background: #1e293b;
+    color: white;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button.btn-secondary.active {
+    background: var(--primary);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.btn-optional {
+    background: transparent;
+    color: var(--text-muted);
+    width: 100%;
+    border: 1px dashed var(--border);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.btn-optional:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.hidden {
+    display: none !important;
+}

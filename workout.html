@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PubSec-Fitness-Drive</title>
+
+    <!-- CSS für sofortiges Styling -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Lädt alle Meta-Tags, Favicons und den Footer automatisch -->
+    <script src="js/components.js"></script>
+</head>
+<body>
+
+<div class="app-viewport">
+    <header>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <button class="btn-secondary" onclick="window.location.href='index.html'"
+                    style="padding: 4px 10px; font-size: 0.75rem;">← Abbrechen
+            </button>
+            <div class="badge" id="programBadge">DRIVE</div>
+        </div>
+        <h1 id="workoutTitle" style="margin-top: 6px;">Workout</h1>
+
+        <!-- Doppel-Fortschrittsbalken -->
+        <div class="progress-section">
+            <div>
+                <div class="progress-label-row">
+                    <span>Gesamtfortschritt</span>
+                    <span id="totalPercentText">0%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="totalProgressBar"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="progress-label-row">
+                    <span>Satz Fortschritt</span>
+                    <span id="setText">Satz 1 von 3</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar set-bar" id="setProgressBar"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Workout View Content ... -->
+    <div class="content" id="workoutView">
+        <div class="exercise-image-box" id="imageContainer">
+            <span>[ Übungsbild ]</span>
+        </div>
+
+        <div style="text-align: center; margin-top: 4px;">
+            <h2 id="exerciseName" style="font-size: 1.25rem;">Übung</h2>
+            <div id="exerciseReps"
+                 style="color: var(--accent); font-size: 0.9rem; font-weight: 700; margin-top: 2px; letter-spacing: 0.5px;">
+                6 - 10 REPS
+            </div>
+        </div>
+
+        <!-- Großer Sci-Fi Rund-Button -->
+        <div class="round-button-container">
+            <div class="round-core-btn" id="coreBtn" onclick="handleCoreBtnClick()">
+                <span class="btn-label" id="coreBtnLabel">STATUS</span>
+                <span class="btn-main-text" id="coreBtnMainText">SATZ BEENDEN</span>
+            </div>
+        </div>
+
+        <!-- Pause Zeit-Auswahl & Optionaler 4. Satz -->
+        <div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px;">
+            <button class="btn-optional hidden" id="optionalBtn" onclick="addOptionalSet()">+ 4. Satz hinzufügen
+                (Optional)
+            </button>
+
+            <div class="pause-selector" id="pauseOptions">
+                <div class="pause-label">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,24M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12.5,7H11V13L16.25,16.15L17,15L12.5,12.25Z"/>
+                    </svg>
+                    Pausenzeit
+                </div>
+                <div class="segmented-control">
+                    <button class="segmented-btn active" id="btn60" onclick="setPauseTime(60)">60s</button>
+                    <button class="segmented-btn" id="btn90" onclick="setPauseTime(90)">90s</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Finish View -->
+    <div class="content hidden" id="finishView" style="text-align: center; justify-content: center;">
+        <div class="finish-circle-container">
+            <div class="finish-core-circle">
+                <span class="finish-icon">✓</span>
+            </div>
+        </div>
+        <h2 style="color: #10b981; font-size: 1.6rem; margin-bottom: 6px;">Mission Completed!</h2>
+        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; margin-bottom: 16px;">Einsatzprotokoll
+            erfolgreich synchronisiert. Die körperliche Integrität wurde maximiert.</p>
+
+        <button class="btn-finish" onclick="window.location.href='index.html'">ZURÜCK ZUM HAUPTMENÜ</button>
+    </div>
+
+    <!-- Automatisch befüllter Footer -->
+    <div id="appFooter"></div>
+</div>
+
+<script src="js/programs.js"></script>
+<script src="js/workout.js"></script>
+</body>
+</html>
