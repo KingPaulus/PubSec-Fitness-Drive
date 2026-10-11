@@ -14,6 +14,8 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) &nbsp;
 [![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com) &nbsp;
 
+</center>
+
 
 Eine mobile-optimierte, progressive Web-App (PWA) für Fitness-Protokolle und Bodyweight-Training, inspiriert vom futuristischen Cyberpunk- / PubSec-Aesthetic (*Zenless Zone Zero*).
 
@@ -118,9 +120,18 @@ const fitnessPrograms = [
 ### Deployment
 Da die Anwendung aus reinem HTML, CSS und JavaScript besteht, kann sie ohne Build-Prozess directly auf **Vercel**, **GitHub Pages** oder **Netlify** gehostet werden.
 
-1. Repository auf GitHub pushen.
-2. Projekt in Vercel importieren.
-3. Fertig! Die Live-URL steht sofort zur Verfügung.
+### Deployment-Schritte auf Vercel
+
+1. **GitHub-Push:** Pushe dein lokales Repository zu GitHub (unterstützt sowohl **Public** als auch **Private** Repositories).
+2. **Dashboard öffnen:** Logge dich auf [vercel.com/new](https://vercel.com/new) ein.
+3. **Account verknüpfen:** Verbinde Vercel mit deinem GitHub-Konto.
+4. **Repository importieren:** Wähle dein Projekt unter *“Import Git Repository”* aus.
+5. **Einstellungen prüfen:**
+    * **Project Name:** Wird automatisch übernommen.
+    * **Framework Preset:** Auf *“Other”* belassen (kein Build-Schritt erforderlich).
+    * **Root Directory:** Standardmäßig beibehalten (`./`).
+6. **Deployen:** Starte den Deployment-Prozess per Klick.
+7. **Live gehen:** Fertig! Die Live-URL steht sofort zur Verfügung.
 
 ### Auf dem iPhone (iOS) installieren
 1. Öffne die Live-URL in **Safari** auf deinem iPhone 15.
@@ -129,5 +140,9 @@ Da die Anwendung aus reinem HTML, CSS und JavaScript besteht, kann sie ohne Buil
 4. Die App startet nun wie eine native App ohne Browser-Leisten im Vollbildmodus.
 
 ---
+
+## 🤖 KI-Unterstützung
+
+Dieses Projekt wurde mit Unterstützung von **Google Gemini** (KI-gestützter Assistent) konzipiert, entwickelt und optimiert.
 
 *PUBSEC SPECIAL OPERATIONS • NEW ERIDU DIVISION*
