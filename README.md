@@ -130,6 +130,7 @@ Da die Anwendung aus reinem HTML, CSS und JavaScript besteht, kann sie ohne Buil
     * **Project Name:** Wird automatisch übernommen.
     * **Framework Preset:** Auf *“Other”* belassen (kein Build-Schritt erforderlich).
     * **Root Directory:** Standardmäßig beibehalten (`./`).
+    * Achte auf Projekt -> Settings -> Build and Deployment -> Output Directory
 6. **Deployen:** Starte den Deployment-Prozess per Klick.
 7. **Live gehen:** Fertig! Die Live-URL steht sofort zur Verfügung.
 
