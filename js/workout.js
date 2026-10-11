@@ -36,34 +36,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const finishView = document.getElementById("finishView");
     const imageContainer = document.getElementById("imageContainer");
 
-    function updateUI() {
+function updateUI() {
         const currentEx = currentProgram.exercises[currentExerciseIndex];
 
         if (!totalSets) {
             totalSets = currentEx.sets || 3;
         }
 
-        exerciseNameEl.textContent = currentEx.name;
+        // NUR AKTUALISIEREN, WENN WIR NICHT IN DER PAUSE SIND
+        if (!isPaused) {
+            exerciseNameEl.textContent = currentEx.name;
 
-        if (exerciseRepsEl) {
-            exerciseRepsEl.textContent = currentEx.target || "";
-        }
-
-        // Satz-Anzeige je nach Typ
-        if (currentEx.type === "hold") {
-            setTextEl.textContent = `Halte-Übung (Ziel: ${currentEx.holdSeconds || 20}s)`;
-            setProgressBar.style.width = `100%`;
-        } else {
-            if (totalSets > 1) {
-                setTextEl.textContent = `Satz ${currentSet} von ${totalSets}`;
-            } else {
-                setTextEl.textContent = `Einzel-Set`;
+            if (exerciseRepsEl) {
+                exerciseRepsEl.textContent = currentEx.target || "";
             }
-            const setPercent = (currentSet / totalSets) * 100;
-            setProgressBar.style.width = `${setPercent}%`;
+
+            // Satz-Anzeige je nach Typ
+            if (currentEx.type === "hold") {
+                setTextEl.textContent = `Halte-Übung (Ziel: ${currentEx.holdSeconds || 20}s)`;
+                setProgressBar.style.width = `100%`;
+            } else {
+                if (totalSets > 1) {
+                    setTextEl.textContent = `Satz ${currentSet} von ${totalSets}`;
+                } else {
+                    setTextEl.textContent = `Einzel-Set`;
+                }
+                const setPercent = (currentSet / totalSets) * 100;
+                setProgressBar.style.width = `${setPercent}%`;
+            }
         }
 
-        // Gesamtforschritts-Berechnung
+        // Gesamtforschritts-Berechnung (bleibt immer aktiv)
         const totalAllSetsCount = currentProgram.exercises.reduce((acc, ex) => acc + (ex.sets || 3), 0);
         let completedSetsCount = 0;
         for (let i = 0; i < currentExerciseIndex; i++) {
@@ -93,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
             optionalBtn.classList.add("hidden");
         }
 
-        // Button Text Logik für den Haupt-Button
+        // Button Text Logik
         if (!isPaused && !isHolding) {
             coreBtnLabel.textContent = "STATUS";
             coreBtnMainText.className = "btn-main-text";
@@ -192,10 +195,16 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("btn90").classList.toggle("active", seconds === 90);
     };
 
-    function startTimer(seconds) {
+function startTimer(seconds) {
         isPaused = true;
         timeLeft = seconds;
         optionalBtn.classList.add("hidden");
+
+        // PAUSEN-TEXT IN UI EINTRAGEN
+        exerciseNameEl.textContent = "Pause";
+        if (exerciseRepsEl) {
+            exerciseRepsEl.textContent = `${seconds} Sekunden Pause`;
+        }
 
         const randomIndex = Math.floor(Math.random() * pauseImages.length);
         const selectedPauseImage = pauseImages[randomIndex];
