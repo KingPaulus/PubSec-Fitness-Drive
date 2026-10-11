@@ -5,18 +5,18 @@ document.addEventListener("DOMContentLoaded", () => {
         <meta name="description" content="PubSec Fitness APP Website">
 
         <!-- Theme Color -->
-        <meta name="theme-color" content="#c7c6ff">
-        <meta name="msapplication-TileColor" content="#c7c6ff">
+        <meta name="theme-color" content="#090d16">
+        <meta name="msapplication-TileColor" content="#090d16">
 
         <!-- Standard Favicons -->
-        <link rel="icon" href="public/favicon/favicon/favicon.ico">
+        <link rel="icon" href="public/favicon/favicon.ico">
         <link rel="icon" type="image/png" sizes="16x16" href="public/favicon/favicon/favicon-16x16.png">
         <link rel="icon" type="image/png" sizes="32x32" href="public/favicon/favicon/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="96x96" href="public/favicon/favicon/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="192x192" href="public/favicon/favicon/favicon-192x192.png">
 
         <!-- Apple Favicons -->
-        <meta name="apple-mobile-web-app-title" content="P.M. Card">
+        <meta name="apple-mobile-web-app-title" content="PubSec Fitness App">
         <link rel="apple-touch-icon" href="public/favicon/apple-favicon/apple-touch-icon.png">
         <link rel="apple-touch-icon" sizes="57x57" href="public/favicon/apple-favicon/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="72x72" href="public/favicon/apple-favicon/apple-touch-icon-72x72.png">
@@ -28,10 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <link rel="apple-touch-icon" sizes="180x180" href="public/favicon/apple-favicon/apple-touch-icon-180x180.png">
 
         <!-- Safari Pinned Tab -->
-        <link rel="mask-icon" href="public/favicon/more-favicon/safari-pinned-tab.svg" color="#c7c6ff">
-
-        <!-- Web App Manifest -->
-        <link rel="manifest" href="public/manifest.json">
+        <link rel="mask-icon" href="public/favicon/favicon/safari-pinned-tab.svg" color="#c7c6ff">
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website">
