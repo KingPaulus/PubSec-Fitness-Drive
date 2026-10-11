@@ -191,6 +191,7 @@ function updateUI() {
 
     window.setPauseTime = function(seconds) {
         pauseDuration = seconds;
+        document.getElementById("btn30").classList.toggle("active", seconds === 30);
         document.getElementById("btn60").classList.toggle("active", seconds === 60);
         document.getElementById("btn90").classList.toggle("active", seconds === 90);
     };
